@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نت‌لاگ فاطمه پروانه | وبلاگ تخصصی روتر و سوییچ ایرانی و خارجی</title>
+<style>
+@font-face{font-family:"Vazirmatn";src:url("fonts/Vazirmatn-Regular.ttf");font-weight:400}
+@font-face{font-family:"Vazirmatn";src:url("fonts/Vazirmatn-Bold.ttf");font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#0f2a44;--navy2:#163a5c;--teal:#00bfa6;--teal-d:#009e8a;
+--bg:#f2f5f9;--card:#fff;--muted:#5b6b7f;--line:#e2e8f0;
+--iran:#ff6f00;--foreign:#1565c0;--gold:#ffb300;
+}
+body{font-family:"Vazirmatn",Tahoma,sans-serif;background:var(--bg);color:#1a2733;line-height:1.85}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.topbar{max-width:1180px;margin:auto;display:flex;align-items:center;gap:14px;padding:12px 18px}
+.logo{width:46px;height:46px;border-radius:12px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#06302b}
+.brand h1{font-size:19px;line-height:1.4}
+.brand p{font-size:12.5px;color:#b9c9da}
+nav{margin-inline-start:auto;display:flex;gap:6px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:13.5px;padding:8px 12px;border-radius:9px;color:#dbe7f3}
+nav a:hover,nav a.active{background:rgba(255,255,255,.12);color:#fff}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0c4a4a 100%);color:#fff;padding:44px 18px 34px}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+.hero h2{font-size:30px;line-height:1.6;margin-bottom:10px}
+.hero h2 span{color:var(--teal)}
+.hero p{color:#c9d8e8;font-size:15px}
+.stats{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 16px;min-width:130px}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12.5px;color:#c9d8e8}
+.hero-card{background:#fff;color:#1a2733;border-radius:18px;padding:18px;display:flex;gap:14px;align-items:center}
+.hero-card img{width:120px;height:90px;object-fit:cover;border-radius:12px;background:#eef2f7}
+.hero-card h3{font-size:15px}
+.hero-card p{font-size:13px;color:var(--muted)}
+.price-pill{display:inline-block;background:#e6fbf7;color:#065f54;border:1px solid #a7e8dd;font-weight:700;border-radius:999px;padding:2px 12px;font-size:14px;margin-top:6px}
+.wrap{max-width:1180px;margin:auto;padding:22px 18px 60px}
+.toolbar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.toolbar input[type=search]{flex:1;min-width:200px;border:1.5px solid var(--line);border-radius:11px;padding:10px 14px;font-family:inherit;font-size:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13.5px;cursor:pointer}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+select{border:1.5px solid var(--line);border-radius:11px;padding:9px 12px;font-family:inherit;font-size:13.5px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:950px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero h2{font-size:23px}nav{display:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,42,68,.14)}
+.imgbox{position:relative;background:#eef2f7;height:200px;overflow:hidden}
+.imgbox img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;top:10px;right:10px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 11px;color:#fff}
+.badge.iran{background:var(--iran)}
+.badge.foreign{background:var(--foreign)}
+.type{position:absolute;top:10px;left:10px;font-size:12px;background:rgba(15,42,68,.85);color:#fff;border-radius:999px;padding:3px 11px}
+.card-body{padding:14px 15px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:16px;line-height:1.6}
+.card-body .brandline{font-size:12.5px;color:var(--muted)}
+.specs-mini{font-size:13px;color:#33475e;background:#f7fafc;border:1px dashed var(--line);border-radius:12px;padding:8px 11px}
+.specs-mini li{margin-inline-start:18px}
+.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px}
+.price{font-weight:700;font-size:18px;color:#0b6e61}
+.price small{font-weight:400;font-size:12px;color:var(--muted)}
+.btn{border:none;cursor:pointer;font-family:inherit;border-radius:11px;padding:9px 15px;font-size:13.5px}
+.btn-primary{background:var(--teal);color:#042e29;font-weight:700}
+.btn-primary:hover{background:var(--teal-d);color:#fff}
+.btn-ghost{background:#eef4f8;color:var(--navy)}
+.section{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:22px}
+.section h2{font-size:20px;margin-bottom:8px;color:var(--navy)}
+.section h2 i{color:var(--teal);font-style:normal}
+.section p{font-size:14.5px;color:#33475e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.box{background:#f7fafc;border:1px solid var(--line);border-radius:14px;padding:14px}
+.box h3{font-size:15.5px;color:var(--navy);margin-bottom:6px}
+.box ul{font-size:13.5px;color:#33475e;padding-inline-start:18px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+th,td{border:1px solid var(--line);padding:8px 9px;text-align:right}
+th{background:var(--navy);color:#fff;font-size:12.5px}
+tr:nth-child(even) td{background:#f8fbfd}
+td.num{font-weight:700;color:#0b6e61;white-space:nowrap}
+footer{background:var(--navy);color:#c9d8e8;padding:26px 18px;margin-top:26px;font-size:13px}
+footer .wrap2{max-width:1180px;margin:auto}
+dialog{border:none;border-radius:18px;max-width:760px;width:92vw;padding:0;overflow:hidden}
+dialog::backdrop{background:rgba(10,25,40,.6)}
+.modal-head{background:var(--navy);color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.modal-head h3{font-size:17px;flex:1}
+.modal-head button{background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:9px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.modal-body{padding:18px 20px;max-height:72vh;overflow:auto}
+.modal-body img{width:100%;height:260px;object-fit:cover;border-radius:14px;background:#eef2f7}
+.spec-table{margin-top:12px}
+.note{background:#fff8e6;border:1px solid #ffe0a3;color:#7a5200;border-radius:12px;padding:10px 13px;font-size:13px;margin-top:12px}
+.empty{background:#fff;border:1px dashed var(--line);border-radius:14px;padding:26px;text-align:center;color:var(--muted);display:none}
+</style>
+</head>
+<body>
+<header>
+<div class="topbar">
+<div class="logo">نت</div>
+<div class="brand"><h1>نت‌لاگ | وبلاگ تخصصی روتر و سوییچ</h1><p>همه مدل‌های ساخت داخل و خارجی • قیمت تقریبی دلاری • عکس و مشخصات فنی • سازنده: فاطمه پروانه</p></div>
+<nav>
+<a href="#list" data-nav="all" class="active">همه مدل‌ها</a>
+<a href="#list" data-nav="iran">ساخت داخل</a>
+<a href="#list" data-nav="foreign">خارجی</a>
+<a href="#guide">راهنمای خرید</a>
+<a href="#compare">مقایسه</a>
+</nav>
+</div>
+</header>
+
+<div class="hero">
+<div class="hero-inner">
+<div>
+<h2>از <span>یوتل و نتربیت ایرانی</span> تا <span>سیسکو و میکروتیک</span>؛ همه روتر و سوییچ‌ها یک‌جا</h2>
+<p>این وبلاگ را ساختم تا لازم نباشد برای هر مدل ۱۰ سایت را بگردی. هر کارت = یک مدل واقعی بازار ایران: عکس واقعی، قیمت حدودی به دلار (بدون نوسان تومان)، پورت‌ها، سرعت، PoE، کاربرد و اینکه برای خانه است یا دیتاسنتر.</p>
+<div class="stats">
+<div class="stat"><b>۳۱</b><span>مدل بررسی‌شده</span></div>
+<div class="stat"><b>۸ + ۲۳</b><span>ایرانی / خارجی</span></div>
+<div class="stat"><b>$</b><span>قیمت دلاری تقریبی</span></div>
+<div class="stat"><b>۱۴۰۵</b><span>به‌روزرسانی پاییز</span></div>
+<div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 14px;font-size:13.5px">👩‍💻 سازنده وبلاگ: <b>فاطمه پروانه</b></div>
+</div>
+</div>
+<div class="hero-card">
+<img src="photos/cisco-catalyst-network-switch-cdd8-2.jpg" alt="سوییچ سیسکو">
+<div><h3>پیشنهاد سردبیر: MikroTik CRS328-24P-4S+RM</h3><p>۲۴ پورت گیگ PoE + چهار آپلینک ۱۰ گیگ؛ محبوب‌ترین سوییچ نیمه‌صنعتی ایران.</p><span class="price-pill">≈ ۴۸۹ دلار</span></div>
+</div>
+</div>
+</div>
+
+<div class="wrap" id="list">
+<div class="toolbar">
+<input type="search" id="q" placeholder="جست‌وجو: مثلاً CCR2004 ، PoE ، دیتاسنتر ، VDSL ...">
+<div class="chips" id="typeChips">
+<button class="chip on" data-t="all">همه</button>
+<button class="chip" data-t="router">روتر</button>
+<button class="chip" data-t="switch">سوییچ</button>
+<button class="chip" data-t="modem">مودم‌روتر</button>
+</div>
+<div class="chips" id="orgChips">
+<button class="chip on" data-o="all">ایران + خارج</button>
+<button class="chip" data-o="iran">🇮🇷 ساخت داخل</button>
+<button class="chip" data-o="foreign">🌍 خارجی</button>
+</div>
+<select id="sort"><option value="cheap">ارزان‌ترین اول</option><option value="exp">گران‌ترین اول</option><option value="name">نام مدل</option></select>
+</div>
+<div id="count" style="font-size:13px;color:#5b6b7f;margin:0 4px 12px"></div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">چیزی پیدا نشد. عبارت دیگری را امتحان کن؛ مثلاً «PoE» یا «10G».</div>
+
+<div class="section" id="guide">
+<h2><i>●</i> راهنمای خرید: روتر بخرم یا سوییچ؟ مودم‌روتر چیست؟</h2>
+<p>خیلی‌ها این سه را قاطی می‌کنند. ساده بگویم: <b>سوییچ</b> دستگاه‌های داخل یک شبکه را به هم وصل می‌کند (مثل چند کامپیوتر و دوربین به یک سوییچ). <b>روتر</b> شبکه تو را به اینترنت یا شبکه دیگر وصل می‌کند و مسیر می‌دهد. <b>مودم‌روتر</b> (مثل یوتل و نتربیت) مودم خط تلفن/سیم‌کارت + روتر وای‌فای خانگی است؛ برای دیتاسنتر به درد نمی‌خورد.</p>
+<div class="two">
+<div class="box"><h3>اگر خانه یا مغازه کوچک داری</h3><ul><li>مودم‌روتر VDSL مثل نتربیت NSL-224 یا یوتل V304F (۳۰ تا ۴۰ دلار)</li><li>اگر فیبر یا اینترنت حجیم نداری، روتر اقتصادی MikroTik hEX S با ۶۹ دلار عالی است</li><li>به Wi-Fi 6 و تعداد آنتن دقت کن؛ PoE لازم نداری</li></ul></div>
+<div class="box"><h3>اگر شرکت، مدرسه یا دیتاسنتر داری</h3><ul><li>سوییچ مدیریتی ۲۴/۴۸ پورت: ژرف ZS-2024G ایرانی یا TP-Link SG3428X</li><li>برای PoE دوربین‌ها: MikroTik CRS328 با بودجه ۵۰۰ وات</li><li>برای هسته دیتاسنتر: تتا 100G یا Cisco Catalyst 9300؛ حتماً SFP+ و QSFP را چک کن</li></ul></div>
+</div>
+<div class="note">قیمت‌های دلاری این صفحه <b>تقریبی و بدون مالیات و گمرک</b> است و از روی قیمت رسمی mikrotik.com و فروشگاه‌های مرجع (CDW، Router-Switch) و بازار ایران گرد شده. قیمت تومانی را با دلار روز خودت حساب کن.</div>
+</div>
+
+<div class="section" id="compare">
+<h2><i>●</i> جدول مقایسه سریع (قیمت دلاری تقریبی)</h2>
+<p>برای انتخاب سریع، ارزان‌ترین‌ها بالا و دیتاسنتری‌ها پایین جدول‌اند.</p>
+<div style="overflow:auto"><table id="ctable"><thead><tr><th>مدل</th><th>ساخت</th><th>نوع</th><th>پورت شاخص</th><th>قیمت ≈ $</th></tr></thead><tbody></tbody></table></div>
+</div>
+
+<div class="section">
+<h2><i>●</i> درباره برندهای ایرانی این لیست</h2>
+<p><b>ژرف پویان توس (مشهد):</b> سوییچ‌های لایه ۲ و ۳ با ۲۴ و ۴۸ پورت؛ رقیب ایرانی سیسکو 2960/9200. <b>تتا (تحقیق و توسعه ارتباط):</b> سوییچ‌های دیتاسنتری White-Box با چیپ برادکام و سیستم‌عامل بومی؛ الان در Core مخابرات ایران ترافیک واقعی عبور می‌دهد. <b>نتربیت (آونگ):</b> مودم‌روترهای 4G و VDSL از ۱۳۹۸. <b>یوتل (ارگ جدید / بم):</b> اولین مودم‌روتر بومی از ۱۳۹۵. عکس مدل‌های ایرانی نمایشی از همان رده است چون پرس‌کیفیت رسمی محدود منتشر شده.</p>
+</div>
+</div>
+
+<footer><div class="wrap2"><div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 14px;margin-bottom:12px;text-align:center;font-size:14px;color:#fff">👩‍💻 طراح و سازنده این وبلاگ: <b>فاطمه پروانه</b> — رشته مهندسی فناوری شبکه‌های کامپیوتری، دانشگاه علمی‌کاربردی واحد ۱۰</div>ساخته‌شده به‌عنوان وبلاگ نمونه • عکس‌ها از صفحات سازنده و فروشگاه‌ها (mikrotik.com ، CDW ، TP-Link Omada ، Huawei) صرفاً برای معرفی • قیمت‌ها تقریبی‌اند و ممکن است تغییر کنند • برای خرید نهایی از نمایندگی استعلام بگیر.</div></footer>
+
+<dialog id="dlg"><div class="modal-head"><h3 id="dtitle"></h3><button onclick="dlg.close()">✕</button></div><div class="modal-body" id="dbody"></div></dialog>
+
+<script>
+const P=[
+{id:1,brand:"ژرف پویان توس",model:"ZS-2024G",country:"ایران",origin:"iran",type:"switch",typeFa:"سوییچ لایه ۲",price:450,img:"photos/tp-link-switch-omada-2655-4.jpg",mini:["۲۴× گیگابیت + ۴× SFP","مدیریتی L2 ، رکمونت 1U","مصرف کم، مناسب سازمان متوسط"],desc:"پرکاربردترین سوییچ ایرانی سازمانی؛ جایگزین بومی سیسکو 2960 برای ادارات دولتی.",specs:[["تعداد پورت","۲۴× 10/100/1000 + چهار SFP گیگ"],["مدیریت","L2 مدیریتی، VLAN، QoS، SNMP"],["توان","تک‌پاور AC، فن کم‌صدا"],["کاربرد","اداره، مدرسه، دوربین مداربسته"],["گارانتی","بومی، پشتیبانی داخل کشور"]]},
+{id:2,brand:"ژرف پویان توس",model:"ZS-2048G",country:"ایران",origin:"iran",type:"switch",typeFa:"سوییچ لایه ۲",price:750,img:"photos/tp-link-switch-omada-2655-1.png",mini:["۴۸× گیگابیت + ۴× SFP+ ده‌گیگ","رکمونت، افزونگی اختیاری RPS","برای تجمیع (Aggregation) سبک"],desc:"نسخه ۴۸ پورت ژرف برای شبکه‌های بزرگ‌تر؛ شخصی‌سازی سخت‌افزار در داخل.",specs:[["تعداد پورت","۴۸× گیگ + ۴× SFP+"],["مدیریت","L2+ ، تجمیع لینک LACP"],["افزونگی","مدل P900 با RPS"],["کاربرد","دانشگاه، بیمارستان، شهرداری"],["قیمت دلاری","≈ ۷۵۰ دلار"]]},
+{id:3,brand:"تتا (TETA)",model:"DCS 48×10G + 6×40G",country:"ایران",origin:"iran",type:"switch",typeFa:"سوییچ دیتاسنتری L3",price:3800,img:"photos/tp-link-switch-omada-2655-3.png",mini:["۴۸× SFP+ ده‌گیگ + ۶× QSFP چهل‌گیگ","چیپ برادکام + OS بومی تتا","تست‌شده در Core مخابرات ایران"],desc:"سوییچ تجمیع دیتاسنتر ایرانی با معماری White-Box؛ سیستم‌عامل شبکه بومی.",specs:[["پورت","48× 10G SFP+ ، 6× 40G QSFP+"],["چیپ","Broadcom Trident II / مشابه"],["نرم‌افزار","TETA NOS ، پشتیبانی SDN"],["ظرفیت","ترافیک سنگین مخابراتی"],["قیمت","≈ ۳۸۰۰ دلار (سفارشی)"]]},
+{id:4,brand:"تتا (TETA)",model:"DCS 32×100G",country:"ایران",origin:"iran",type:"switch",typeFa:"سوییچ Core دیتاسنتر",price:9500,img:"photos/cisco-catalyst-network-switch-cdd8-3.jpg",mini:["۳۲× QSFP28 صدگیگ","برای Core و Spine-Leaf","دو پاور هات‌سواپ"],desc:"پرچم‌دار تتا برای دیتاسنتر؛ رقیب ایرانی Nexus در ظرفیت بالا.",specs:[["پورت","۳۲× 100G QSFP28"],["سوئیچینگ","چند ترابیت بر ثانیه"],["تغذیه","دو پاور هات‌سواپ"],["کاربرد","دیتاسنتر، اپراتور"],["قیمت","≈ ۹۵۰۰ دلار"]]},
+{id:5,brand:"نتربیت",model:"NWR-M920v2",country:"ایران",origin:"iran",type:"modem",typeFa:"مودم‌روتر 4G",price:45,img:"photos/huawei-router-network-device-991f-1.jpg",mini:["سیم‌کارت LTE/3G ، ۱۵۰ مگابیت","۴ آنتن، ۱۰+ کاربر هم‌زمان","پورت LAN + فایروال NAT"],desc:"روتر رومیزی سیم‌کارتی اقتصادی برای خانه و مغازه بدون خط ثابت.",specs:[["شبکه","4G LTE ، دانلود 150Mbps"],["وای‌فای","802.11b/g/n ، 2.4GHz"],["پورت","یک LAN + USB-C"],["کاربر","۱۰+ اتصال هم‌زمان"],["قیمت","≈ ۴۵ دلار"]]},
+{id:6,brand:"نتربیت",model:"NSL-224",country:"ایران",origin:"iran",type:"modem",typeFa:"مودم‌روتر VDSL2",price:35,img:"photos/huawei-router-network-device-991f-4.png",mini:["VDSL2/ADSL2+","دو آنتن، N300","۴ پورت LAN"],desc:"مودم خط تلفن برای اینترنت مخابرات؛ انتخاب کم‌خرج خانگی.",specs:[["استاندارد","VDSL2 ، ADSL2+"],["وای‌فای","N300 ، دو آنتن خارجی"],["پورت","۴× LAN"],["امنیت","WPA2 ، فایروال SPI"],["قیمت","≈ ۳۵ دلار"]]},
+{id:7,brand:"یوتل (U.TEL)",model:"A304U",country:"ایران",origin:"iran",type:"modem",typeFa:"مودم‌روتر ADSL",price:25,img:"photos/huawei-router-network-device-991f-6.png",mini:["ADSL2+ ، وای‌فای N300","ساخت بم، از ۱۳۹۵","ارزان‌ترین گزینه ایرانی"],desc:"اولین برند مودم ایرانی؛ ساده و پایدار برای مصرف خانگی.",specs:[["استاندارد","ADSL2+"],["وای‌فای","N300 ، 2.4GHz"],["پورت","۴× LAN + یک RJ11"],["کاربرد","خانه، خوابگاه"],["قیمت","≈ ۲۵ دلار"]]},
+{id:8,brand:"یوتل (U.TEL)",model:"V304F",country:"ایران",origin:"iran",type:"modem",typeFa:"مودم‌روتر VDSL",price:32,img:"photos/huawei-router-network-device-991f-2.jpg",mini:["VDSL + ADSL ، N300","۴ آنتن داخلی/خارجی","پشتیبانی IPv6"],desc:"نسخه VDSL یوتل؛ سرعت بالاتر روی همان خط تلفن.",specs:[["استاندارد","VDSL2 / ADSL2+"],["وای‌فای","N300"],["پورت","۴× LAN"],["ویژگی","TR-069 مخابرات"],["قیمت","≈ ۳۲ دلار"]]},
+{id:9,brand:"Cisco",model:"Catalyst C9300-48P",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ سازمانی L3",price:4500,img:"photos/cisco-catalyst-network-switch-cdd8-2.jpg",mini:["۴۸× گیگ PoE+ + آپلینک ماژولار","IOS-XE ، استک تا ۸ سوئیچ","انتخاب اول بانک‌ها و نفت"],desc:"استاندارد طلایی شبکه سازمانی؛ گران ولی با پایداری افسانه‌ای.",specs:[["پورت","۴۸× 1G PoE+ ، آپلینک 10G/40G"],["سیستم‌عامل","Cisco IOS-XE"],["استک","StackWise تا 480Gbps"],["PoE","بودجه ~740W"],["قیمت","≈ ۴۵۰۰ دلار"]]},
+{id:10,brand:"Cisco",model:"ISR 4331",country:"آمریکا",origin:"foreign",type:"router",typeFa:"روتر سازمانی",price:3200,img:"photos/cisco-catalyst-network-switch-cdd8-1.jpg",mini:["توان 100Mbps تا 300Mbps","۳ اسلات NIM/SM ، دو پاور","VPN ، QoS ، SD-WAN"],desc:"روتر شعب بانک و سازمان؛ ماژولار و قابل ارتقا.",specs:[["توان","100 تا 300 Mbps"],["اسلات","۳× NIM + یک SM"],["حافظه","۴GB RAM / ۸GB فلش"],["ویژگی","DMVPN ، ZBFW ، SD-WAN"],["قیمت","≈ ۳۲۰۰ دلار"]]},
+{id:11,brand:"MikroTik",model:"CCR2004-16G-2S+",country:"لتونی",origin:"foreign",type:"router",typeFa:"روتر Core",price:465,img:"photos/mikrotik-router-ccr-3dba-2.jpg",mini:["۱۶× گیگ + ۲× SFP+ ده‌گیگ","CPU چهار هسته‌ای ARM64","RouterOS v7 ، رکمونت ساکت"],desc:"پادشاه قیمت/کارایی؛ ۳ برابر سریع‌تر از CCR1009 با نصف قیمت سیسکو.",specs:[["پورت","۱۶× GbE ، 2× 10G SFP+"],["پردازنده","ARM64 چهار هسته‌ای"],["رم","۴GB"],["سیستم‌عامل","RouterOS L6"],["قیمت رسمی","۴۶۵ دلار"]]},
+{id:12,brand:"MikroTik",model:"CRS328-24P-4S+RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ PoE",price:489,img:"photos/mikrotik-router-ccr-3dba-1.jpg",mini:["۲۴× گیگ PoE-out + ۴× SFP+","بودجه PoE ۵۰۰ وات","دو بوت RouterOS/SwOS"],desc:"بهترین سوییچ برای دوربین و رادیو؛ هر ۲۴ پورت برق می‌دهد.",specs:[["پورت","۲۴× Gb PoE-out ، 4× 10G"],["بودجه PoE","۵۰۰W"],["مدیریت","RouterOS + SwOS"],["رکمونت","1U با دو فن"],["قیمت رسمی","۴۸۹ دلار"]]},
+{id:13,brand:"MikroTik",model:"hEX S (2025)",country:"لتونی",origin:"foreign",type:"router",typeFa:"روتر اقتصادی",price:69,img:"photos/mikrotik-router-ccr-3dba-6.jpg",mini:["۵× گیگ + SFP دو‌ونیم‌گیگ","PoE-out ، USB ، پردازنده دوهسته‌ای","برای خانه و آزمایشگاه"],desc:"کلاسیک محبوب hEX با دو برابر کارایی؛ ۶۹ دلارِ همه‌کاره.",specs:[["پورت","۵× GbE + یک SFP"],["پردازنده","دو هسته‌ای ARM"],["ویژگی","PoE-out ، USB"],["سیستم","RouterOS v7"],["قیمت رسمی","۶۹ دلار"]]},
+{id:14,brand:"TP-Link Omada",model:"SG3428X",country:"چین",origin:"foreign",type:"switch",typeFa:"سوییچ مدیریتی 10G",price:349,img:"photos/tp-link-switch-omada-2655-7.jpg",mini:["۲۴× گیگ + ۴× SFP+ ده‌گیگ","مدیریت ابری Omada SDN","رکمونت کم‌صدا"],desc:"انتخاب دفتر مدرن؛ راه‌اندازی ساده با کنترلر Omada.",specs:[["پورت","۲۴× Gb + 4× 10G SFP+"],["مدیریت","Omada SDN ، VLAN ، ACL"],["سوییچینگ","۱۲۸Gbps"],["کاربرد","دفتر، هتل، مدرسه"],["قیمت","≈ ۳۴۹ دلار"]]},
+{id:15,brand:"Ubiquiti UniFi",model:"Dream Machine Pro",country:"آمریکا",origin:"foreign",type:"router",typeFa:"روتر + کنترلر",price:379,img:"photos/tp-link-switch-omada-2655-2.jpg",mini:["گیت‌وی 10G + سوییچ ۸ پورت","کنترلر UniFi داخلی، NVR","هارد اکسترنال دوربین"],desc:"همه‌کاره هتل و دفتر مدرن: روتر، کنترلر و ضبط دوربین در یک باکس.",specs:[["WAN","یک SFP+ ده‌گیگ + یک GbE"],["LAN","۸× GbE"],["کنترلر","UniFi Network داخلی"],["ذخیره","بی 3.5 اینچ برای Protect"],["قیمت","≈ ۳۷۹ دلار"]]},
+
+{id:17,brand:"Cisco",model:"Catalyst 2960-X 24TS-L",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ لایه ۲",price:1150,img:"photos/cisco-catalyst-9200-switch-front-04bd-3.png",mini:["۲۴× گیگ + ۴× SFP+ ده‌گیگ","IOS ، استک FlexStack","پراستوک‌ترین سوییچ بازار ایران"],desc:"پادشاه استوک بازار ایران؛ همه جا پیدا می‌شود، از اداره تا کافی‌نت.",specs:[["پورت","۲۴× 1G + 4× SFP+"],["استک","FlexStack تا ۴ سوئیچ"],["مدیریت","L2 ، VLAN ، QoS"],["PoE","این مدل بدون PoE (مدل LP-S با PoE)"],["قیمت","≈ ۱۱۵۰ دلار نو / استوک ارزان‌تر"]]},
+{id:18,brand:"Cisco",model:"Catalyst C9200-24P",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ سازمانی L3",price:2450,img:"photos/cisco-catalyst-9200-switch-front-04bd-1.jpg",mini:["۲۴× گیگ PoE+ + ۴× SFP+ ده‌گیگ","IOS-XE ، دانگل DNA","جایگزین 2960 در پروژه‌های نو"],desc:"سوییچ اکسس سازمانی نسل جدید؛ انتخاب اول پروژه‌های دولتی نو.",specs:[["پورت","۲۴× 1G PoE+ ، 4× 10G SFP+"],["سیستم‌عامل","IOS-XE"],["استک","StackWise-160"],["بودجه PoE","~740W"],["قیمت","≈ ۲۴۵۰ دلار"]]},
+{id:19,brand:"Cisco",model:"Catalyst C9300L-48T",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ تجمیع L3",price:3800,img:"photos/cisco-catalyst-9200-switch-front-04bd-2.jpg",mini:["۴۸× گیگ + ۴× SFP+ ماژولار","StackWise تا 1Tbps","برای تجمیع ساختمان و خوابگاه"],desc:"نسخه اقتصادی 9300 برای تجمیع؛ بدون PoE ولی با همان IOS-XE.",specs:[["پورت","۴۸× 1G + ماژول 4× 10G"],["استک","StackWise-320"],["سوییچینگ","~176Gbps"],["کاربرد","تجمیع، دیتاسنتر کوچک"],["قیمت","≈ ۳۸۰۰ دلار"]]},
+{id:20,brand:"Cisco",model:"Nexus N9K-C93180YC-EX",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ دیتاسنتر 25/100G",price:13500,img:"photos/cisco-catalyst-9200-switch-front-04bd-4.jpg",mini:["۴۸× 10/25G + ۶× 100G QSFP28","NX-OS ، VXLAN ، ACI","قلب دیتاسنترهای بزرگ"],desc:"سوییچ اسپاین/لیف واقعی دیتاسنتر؛ چیزی که تتا ایرانی با آن رقابت می‌کند.",specs:[["پورت","48× 25G SFP28 ، 6× 100G QSFP28"],["سیستم‌عامل","NX-OS"],["ظرفیت","~3.6Tbps"],["تغذیه","دو پاور هات‌سواپ"],["قیمت","≈ ۱۳۵۰۰ دلار"]]},
+{id:21,brand:"Cisco",model:"CBS350-24P-4G",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ مدیریتی PoE",price:450,img:"photos/cisco-catalyst-9200-switch-front-04bd-6.png",mini:["۲۴× گیگ PoE+ + ۴× SFP گیگ","وب‌منیج + موبایل اپ","برای دفتر کوچک و دوربین"],desc:"سری Small Business سیسکو؛ قیمت مناسب با لوگوی سیسکو.",specs:[["پورت","۲۴× Gb PoE+ ، 4× SFP"],["بودجه PoE","~195W"],["مدیریت","L2+ ، VLAN ، static routing"],["کاربرد","دفتر، رستوران، مدرسه"],["قیمت","≈ ۴۵۰ دلار"]]},
+{id:22,brand:"Cisco",model:"Catalyst 3850-24P-S",country:"آمریکا",origin:"foreign",type:"switch",typeFa:"سوییچ لایه ۳ استوک",price:1400,img:"photos/cisco-catalyst-9200-switch-front-04bd-7.jpg",mini:["۲۴× گیگ PoE+ + ۴× SFP+","StackWise-480 ، کنترلر وایرلس داخلی","پرفروش استوک دیوار و بازار"],desc:"مدل محبوب استوک؛ هنوز در خیلی از سازمان‌های ایران کار می‌کند.",specs:[["پورت","۲۴× PoE+ ، 4× SFP+"],["قابلیت","کنترلر وایرلس یکپارچه"],["استک","تا ۹ سوئیچ"],["کاربرد","سازمان متوسط"],["قیمت","≈ ۱۴۰۰ دلار (استوک ~نصف)"]]},
+{id:23,brand:"MikroTik",model:"CRS305-1G-4S+IN",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 10G جیبی",price:149,img:"photos/mikrotik-crs-switch-rackmount-5bdf-4.jpg",mini:["۱× گیگ + ۴× SFP+ ده‌گیگ","کوچک، سایلنت، دو بوت","برای لینک فیبر و آزمایشگاه"],desc:"کوچک‌ترین سوییچ 10G دنیا؛ همه‌کاره برای فیبر.",specs:[["پورت","1× GbE ، 4× 10G SFP+"],["چیپ","98DX128"],["مدیریت","RouterOS + SwOS"],["مصرف","~10W"],["قیمت رسمی","۱۴۹ دلار"]]},
+{id:24,brand:"MikroTik",model:"CRS309-1G-8S+IN",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 10G هشت پورت",price:269,img:"photos/mikrotik-crs-switch-rackmount-5bdf-2.png",mini:["۱× گیگ + ۸× SFP+ ده‌گیگ","رکمونت نیم‌عرض، سایلنت","تجمیع فیبر ISP و WISP"],desc:"محبوب WISPها برای تجمیع لینک‌های فیبر.",specs:[["پورت","1× GbE ، 8× 10G SFP+"],["مدیریت","RouterOS L5"],["نصب","رکمونت / رومیزی"],["کاربرد","ISP ، تجمیع فیبر"],["قیمت","≈ ۲۶۹ دلار"]]},
+{id:25,brand:"MikroTik",model:"CRS326-24G-2S+RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ ۲۴ پورت گیگ",price:189,img:"photos/mikrotik-crs-switch-rackmount-5bdf-1.png",mini:["۲۴× گیگ + ۲× SFP+ ده‌گیگ","ارزان‌ترین ۲۴ پورت مدیریتی","رکمونت 1U"],desc:"ارزان‌ترین راه رفتن به دنیای مدیریتی؛ همه‌جا در ایران هست.",specs:[["پورت","۲۴× GbE ، 2× 10G SFP+"],["مدیریت","RouterOS + SwOS"],["سوییچینگ","~48Gbps"],["کاربرد","اداره، خوابگاه"],["قیمت رسمی","۱۸۹ دلار"]]},
+{id:26,brand:"MikroTik",model:"CRS354-48G-4S+2Q+RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ ۴۸ پورت + 40G",price:599,img:"photos/mikrotik-crs-switch-rackmount-5bdf-6.png",mini:["۴۸× گیگ + ۴× SFP+ + ۲× QSFP چهل‌گیگ","بهترین قیمت ۴۸ پورت بازار","رکمونت دو فن"],desc:"رقیب مستقیم ژرف ZS-2048G ولی با آپلینک 40G.",specs:[["پورت","48× Gb ، 4× 10G ، 2× 40G"],["مدیریت","RouterOS L5"],["ظرفیت","~336Gbps"],["کاربرد","تجمیع، دانشگاه"],["قیمت رسمی","۵۹۹ دلار"]]},
+{id:27,brand:"MikroTik",model:"CRS354-48P-4S+2Q+RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ ۴۸ پورت PoE",price:799,img:"photos/mikrotik-router-ccr-3dba-1.jpg",mini:["۴۸× گیگ PoE+ + ۴× SFP+ + ۲× 40G","بودجه PoE ~750W","غول PoE برای دوربین و هتل"],desc:"۴۸ پورت برق‌دار؛ یک سوئیچ برای کل هتل.",specs:[["پورت","48× Gb PoE+ ، 4× SFP+ ، 2× QSFP+"],["بودجه PoE","~750W"],["تغذیه","دو پاور داخلی"],["کاربرد","هتل، دوربین، خوابگاه"],["قیمت","≈ ۷۹۹ دلار"]]},
+{id:28,brand:"MikroTik",model:"CRS312-4C+8XG-RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 10G مسی",price:699,img:"photos/mikrotik-crs-switch-rackmount-5bdf-5.png",mini:["۸× 10G مسی + ۴× کمبو SFP+","اولین 10G مسی میکروتیک","برای سرور و تدوین"],desc:"اگر کابل مسی داری ولی سرعت 10G می‌خواهی.",specs:[["پورت","8× 10G RJ45 ، 4× combo"],["مدیریت","RouterOS L5"],["ظرفیت","~240Gbps"],["کاربرد","استودیو، سرور"],["قیمت رسمی","۶۹۹ دلار"]]},
+{id:29,brand:"MikroTik",model:"CRS518-16XS-2XQ-RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 25/100G",price:1595,img:"photos/mikrotik-router-ccr-3dba-3.png",mini:["۱۶× SFP28 بیست‌وپنج‌گیگ + ۲× 100G","ظرفیت 1.2Tbps","دیتاسنتر جمع‌وجور"],desc:"ورود ارزان به دنیای 100G؛ نصف قیمت سیسکو.",specs:[["پورت","16× 25G ، 2× 100G QSFP28"],["ظرفیت","1.2Tbps"],["خنک‌کننده","۴ فن هات‌سواپ"],["کاربرد","دیتاسنتر، ISP بزرگ"],["قیمت رسمی","۱۵۹۵ دلار"]]},
+{id:30,brand:"MikroTik",model:"CRS520-4XS-16XQ-RM",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 100G سازمانی",price:2195,img:"photos/mikrotik-router-ccr-3dba-5.png",mini:["۱۶× 100G + ۴× 25G + ۲× 10G","CPU چهار هسته‌ای CCR","پرچم‌دار میکروتیک"],desc:"قوی‌ترین سوییچ میکروتیک؛ رقیب نکسوس در قیمت یک‌دهم.",specs:[["پورت","16× 100G QSFP28 ، 4× 25G"],["CPU","ARM64 چهار هسته‌ای"],["رم","4GB"],["پاور","دو هات‌سواپ"],["قیمت رسمی","۲۱۹۵ دلار"]]},
+{id:31,brand:"MikroTik",model:"CRS504-4XQ-IN",country:"لتونی",origin:"foreign",type:"switch",typeFa:"سوییچ 100G فشرده",price:799,img:"photos/mikrotik-router-ccr-3dba-2.jpg",mini:["۴× QSFP28 صدگیگ","کومپکت، کم‌مصرف، دو پاور","آپلینک دیتاسنتر کوچک"],desc:"ارزان‌ترین دروازه 100G؛ برای ارتقای شبکه 10/25G.",specs:[["پورت","4× 100G QSFP28"],["مدیریت","RouterOS v7"],["تغذیه","دو هات‌سواپ"],["مصرف","~45W"],["قیمت رسمی","۷۹۹ دلار"]]},
+{id:16,brand:"Huawei",model:"NetEngine AR6140",country:"چین",origin:"foreign",type:"router",typeFa:"روتر سازمانی",price:2200,img:"photos/huawei-router-network-device-991f-5.jpg",mini:["توان فورواردینگ چند گیگ","اسلات SIC/WSIC ، دو پاور","SD-WAN و 5G بکاپ"],desc:"روتر شعب بزرگ و تجمیع؛ رقیب مستقیم ISR سیسکو با قیمت کمتر.",specs:[["توان","چند Gbps"],["اسلات","ماژولار SIC"],["ویژگی","SD-WAN ، VPN IPsec"],["افزونگی","دو پاور"],["قیمت","≈ ۲۲۰۰ دلار"]]}
+];
+let fT="all",fO="all";
+const grid=document.getElementById('grid'),empty=document.getElementById('empty');
+function fa(n){return Number(n).toLocaleString('fa-IR')}
+function render(){
+let q=document.getElementById('q').value.trim();
+let arr=P.filter(p=>{
+let okT=fT==="all"||p.type===fT;
+let okO=fO==="all"||p.origin===fO;
+let okQ=!q||(p.brand+p.model+p.desc+p.mini.join(' ')).includes(q);
+return okT&&okO&&okQ;
+});
+let s=document.getElementById('sort').value;
+if(s==="cheap")arr.sort((a,b)=>a.price-b.price);
+if(s==="exp")arr.sort((a,b)=>b.price-a.price);
+if(s==="name")arr.sort((a,b)=>a.model.localeCompare(b.model));
+grid.innerHTML="";
+empty.style.display=arr.length?"none":"block";
+arr.forEach(p=>{
+let d=document.createElement('div');d.className='card';
+d.innerHTML=`<div class="imgbox"><img loading="lazy" src="${p.img}" alt="${p.brand} ${p.model}"><span class="badge ${p.origin}">${p.origin==='iran'?'ساخت ایران':'خارجی • '+p.country}</span><span class="type">${p.typeFa}</span></div><div class="card-body"><h3>${p.brand} — ${p.model}</h3><div class="brandline">${p.desc}</div><ul class="specs-mini">${p.mini.map(m=>'<li>'+m+'</li>').join('')}</ul><div class="price-row"><div class="price">≈ $${p.price} <small>/ ${fa(p.price)} دلار</small></div><button class="btn btn-primary" data-id="${p.id}">مشخصات کامل</button></div></div>`;
+grid.appendChild(d);
+});
+grid.querySelectorAll('button').forEach(b=>b.onclick=()=>openDlg(+b.dataset.id));
+let tb=document.querySelector('#ctable tbody');tb.innerHTML="";
+[...P].sort((a,b)=>a.price-b.price).forEach(p=>{let tr=document.createElement('tr');tr.innerHTML=`<td><b>${p.brand} ${p.model}</b></td><td>${p.country}</td><td>${p.typeFa}</td><td>${p.mini[0]}</td><td class="num">≈ $${p.price}</td>`;tb.appendChild(tr)});
+}
+function openDlg(id){
+let p=P.find(x=>x.id===id);
+document.getElementById('dtitle').textContent=p.brand+' — '+p.model;
+document.getElementById('dbody').innerHTML=`<img src="${p.img}" alt="${p.model}"><p style="margin-top:10px;font-size:14.5px">${p.desc}</p><div class="price-pill">قیمت تقریبی: ${p.price} دلار آمریکا (≈ ${fa(p.price)} $)</div><table class="spec-table">${p.specs.map(s=>'<tr><th style="width:130px">'+s[0]+'</th><td>'+s[1]+'</td></tr>').join('')}</table><div class="note">💡 مناسب برای: ${p.mini.join(' ، ')}. ${p.origin==='iran'?'پشتیبانی و گارانتی داخل ایران، بدون دغدغه تحریم و لایسنس.':'برای بازار ایران معمولاً به‌صورت آکبند یا استوک (کارکرده) عرضه می‌شود؛ هنگام خرید به اصالت پارت‌نامبر دقت کن.'}</div>`;
+document.getElementById('dlg').showModal();
+}
+document.getElementById('q').oninput=render;
+document.getElementById('sort').onchange=render;
+document.querySelectorAll('#typeChips .chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('#typeChips .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');fT=c.dataset.t;render()});
+function setOrigin(o,scroll=true){
+fO=o;
+document.querySelectorAll('#orgChips .chip').forEach(x=>x.classList.toggle('on',x.dataset.o===o));
+document.querySelectorAll('nav a[data-nav]').forEach(x=>x.classList.toggle('active',x.dataset.nav===o));
+render();
+if(scroll){document.getElementById('grid').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+document.querySelectorAll('#orgChips .chip').forEach(c=>c.onclick=()=>setOrigin(c.dataset.o,false));
+document.querySelectorAll('nav a[data-nav]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();setOrigin(a.dataset.nav);}));
+// count line inside render:
+const _oldRender = render;
+render = function(){
+_oldRender();
+let q=document.getElementById('q').value.trim();
+let total=P.length;
+let shown=document.getElementById('grid').children.length;
+let oName=fO==='iran'?'ساخت داخل 🇮🇷':(fO==='foreign'?'خارجی 🌍':'ایران + خارج');
+let tName=document.querySelector('#typeChips .chip.on')?document.querySelector('#typeChips .chip.on').textContent:'همه';
+let el=document.getElementById('count');
+if(el){el.textContent='نمایش '+shown+' از '+total+' مدل — فیلتر: '+oName+' • '+tName+(q?' • جست‌وجو: «'+q+'»':'');}
+};
+render();
+</script>
+</body>
+</html>
